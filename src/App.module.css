@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+  display: flex;
+}
+
+.upperHeader {
+  height: 100px;
+  border: 2px solid blue;
+  width: 100%;
+}
+
+.sideContainer {
+  border: 2px solid red;
+  height: 100vh;
+  min-width: 80px;
+}
+
+.screen {
+  width: 100%;
+  margin: 40px 70px;
+  height: 100vh;
+  border: 1px solid blue;
+  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1); */
+}
