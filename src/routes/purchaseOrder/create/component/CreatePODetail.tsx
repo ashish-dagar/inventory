@@ -23,7 +23,7 @@ function CreatePODetail({item, checkboxHandler, selectedPO}:CreatePODetailProps)
     <TableRow key={item.itemId}>
     <TableCell>
       <Checkbox
-        checked={selectedPO.filter((i: any) => i.itemId === item.itemId).length > 0}
+        checked={selectedPO.item.filter((i: any) => i.itemId === item.itemId).length > 0}
         onChange={(event) => checkboxHandler(event, item)}
       /> 
     </TableCell>

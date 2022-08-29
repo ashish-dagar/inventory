@@ -5,6 +5,8 @@ import PurchaseOrder from './routes/purchaseOrder/PurchaseOrder';
 import About from './routes/about/About';
 import SidePanel from './SidePanel';
 import CreatePO from './routes/purchaseOrder/create/CreatePO';
+import TransferOrder from './routes/transferOrder';
+import CreateTO from './routes/transferOrder/create/CreateTO';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path='/' element={<PurchaseOrder />} />
         <Route path='/about' element={<About />} />
         <Route path='/create' element={<CreatePO />} />
+        <Route path='/transferOrder' element={<TransferOrder />} />
+        <Route path='/createTransferOrder' element={<CreateTO />} />
       </Routes>
       </div>
     </div>

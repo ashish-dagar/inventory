@@ -7,8 +7,9 @@ import { orderItem, siteData, supplierData } from "../../../../mockData";
 
 interface CreatePoHeaderProps {
   stateHandler: () => void;
+  selectedPO: any;
 }
-function CreatePOHeader({stateHandler}: CreatePoHeaderProps): JSX.Element {
+function CreatePOHeader({stateHandler, selectedPO}: CreatePoHeaderProps): JSX.Element {
 
   return (
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
@@ -34,10 +35,10 @@ function CreatePOHeader({stateHandler}: CreatePoHeaderProps): JSX.Element {
             sx={{ width: 300 }}
           />
           <Button variant="contained">Create PO</Button>
-          <Button variant="contained" onClick={stateHandler}>
+          <Button variant="contained" onClick={stateHandler} disabled={selectedPO.item.length < 1}>
             Review Basket
           </Button>
-        </div>
+    </div>
   );
 }
 

@@ -1,4 +1,3 @@
-import styles from "./PurchaseOrder.module.css";
 import {
   Button,
   Checkbox,
@@ -8,14 +7,19 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
+import styles from "./PurchaseOrder.module.css";
 import { poData } from "../../mockData";
 import { poHeader } from "./constant";
 
 function PurchaseOrder(): JSX.Element {
+
+  const navigate = useNavigate();
   return (
     <>
       <div className={styles.headContainer}>
-        <Button variant="contained">Create PO</Button>
+        <Button variant="contained" onClick={()=>navigate('/create')}>Create PO</Button>
       </div>
       <div className={styles.bodyContainer}>
         <Table>
@@ -27,10 +31,6 @@ function PurchaseOrder(): JSX.Element {
               {poHeader.map(item => (
                 <TableCell align="left">{item}</TableCell>
               ))}
-              {/* <TableCell align="left">PO ID</TableCell>
-              <TableCell align="left">STATUS</TableCell>
-              <TableCell align="left">PO Created Date</TableCell>
-              <TableCell align="left">Amount</TableCell> */}
             </TableRow>
           </TableHead>
 
