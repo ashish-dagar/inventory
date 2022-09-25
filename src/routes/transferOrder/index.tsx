@@ -22,7 +22,7 @@ function TransferOrder(): JSX.Element {
   return (<>
     <div className={styles.headContainer}>
         <Button variant="contained" onClick={()=>navigate('/createTransferOrder')}>Create TO</Button>
-      </div>
+    </div>
     <div className={styles.bodyContainer}>
       <Table>
         <TableHead>

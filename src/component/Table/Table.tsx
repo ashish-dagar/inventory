@@ -1,20 +1,22 @@
-import {
-    Button,
-    Checkbox,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow,
-  } from "@mui/material";
+import {Table} from "@mui/material";
+import React from "react";
+import TableContent from "./TableContent";
+import TableHeader from "./TableHeader";
 
-function CustomTable(): JSX.Element {
+function CustomTable(props: any): JSX.Element {
+  const {tableContent, tableLabel, tableHeader, checkBoxCallBackHandler} = props;
   return (
    <Table>
-    <TableHead>
-      
-    </TableHead>
-   </Table>   
+    <TableHeader
+      tableHeader={tableHeader}
+      checkBoxAllCallBackFn={() => console.log("FN CALLEDDDDDDDDD----")}
+    />
+    <TableContent
+      tableContent={tableContent}
+      tableLabel={tableLabel}
+      checkBoxCallBackFn={checkBoxCallBackHandler}
+    />
+   </Table> 
   );
 }
 

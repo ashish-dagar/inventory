@@ -1,17 +1,14 @@
 import {
   Button,
-  Checkbox,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
+ // Table,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./PurchaseOrder.module.css";
 import { poData } from "../../mockData";
-import { poHeader } from "./constant";
+import { poContentLabel, poHeader } from "./constant";
+import Table from "../../component/Table/Table";
+import React from "react";
 
 function PurchaseOrder(): JSX.Element {
 
@@ -22,7 +19,7 @@ function PurchaseOrder(): JSX.Element {
         <Button variant="contained" onClick={()=>navigate('/create')}>Create PO</Button>
       </div>
       <div className={styles.bodyContainer}>
-        <Table>
+        {/* <Table>
           <TableHead>
             <TableRow>
               <TableCell align="left">
@@ -47,7 +44,13 @@ function PurchaseOrder(): JSX.Element {
               </TableRow>
             ))}
           </TableBody>
-        </Table>
+        </Table> */}
+        <Table
+          tableHeader={poHeader}
+          tableContent={poData}
+          tableLabel={poContentLabel}
+          checkBoxCallBackHandler={(event: any, item: any)=> console.log(event, item)}
+        />
       </div>
     </>
   );
