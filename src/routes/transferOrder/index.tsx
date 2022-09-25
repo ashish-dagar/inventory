@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Button, Checkbox, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Button, 
+  //Checkbox, Table, TableBody, TableCell, TableHead, TableRow 
+} from '@mui/material';
 
-import { transferOrderHeader } from './constant';
+import { toContentLabel, transferOrderHeader } from './constant';
 import styles from './transferOrder.module.css';
 import { transferOrderListProps } from './transferOrderType';
 import { fetchTransferOrderList } from './api';
 import { useNavigate } from 'react-router-dom';
+import Table from '../../component/Table/Table';
 
 function TransferOrder(): JSX.Element {
   const navigate = useNavigate();
@@ -24,7 +27,12 @@ function TransferOrder(): JSX.Element {
         <Button variant="contained" onClick={()=>navigate('/createTransferOrder')}>Create TO</Button>
     </div>
     <div className={styles.bodyContainer}>
-      <Table>
+      <Table
+        tableHeader={transferOrderHeader}
+      tableContent={transferOrderList}
+      tableLabel={toContentLabel}
+      />
+      {/* <Table>
         <TableHead>
           <TableRow>
             <TableCell align="left">
@@ -51,7 +59,7 @@ function TransferOrder(): JSX.Element {
               )
             })}
           </TableBody>
-      </Table>
+      </Table> */}
     </div>
     </>
     );
