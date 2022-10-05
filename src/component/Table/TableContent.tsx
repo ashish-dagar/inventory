@@ -8,7 +8,7 @@ function TableContent(props: any): JSX.Element {
       contentLabels &&
       contentLabels.map((col: any) => {
         const type = col.type;
-        let ele = null;
+        let ele ;
         const cellData = item[col.name];
         switch (type) {
           case "text":

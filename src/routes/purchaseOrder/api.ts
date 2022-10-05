@@ -1,4 +1,4 @@
-import { orderItem } from "../../mockData";
+import { orderItem, poDataNew } from "../../mockData";
 
 export const getCreatePOList = () => {
     console.log('cxvxcvxcvxvxc')
@@ -7,4 +7,8 @@ export const getCreatePOList = () => {
 
 export const newCall = () => {
     return fetch('https://jsonplaceholder.typicode.com/todos')
+}
+
+export const createNewPO = (param: any) => {
+    poDataNew.push(param);
 }

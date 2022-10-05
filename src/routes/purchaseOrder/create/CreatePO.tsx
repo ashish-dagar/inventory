@@ -1,30 +1,34 @@
 import {
-  Autocomplete,
   Button,
-  TextField,
   Checkbox,
   Table,
   TableBody,
   TableCell,
   TableHead,
-  TableRow,
+  TableRow
 } from "@mui/material";
-import { getValue } from "@testing-library/user-event/dist/utils";
 import React, { useEffect, useState } from "react";
 import SideDrawer from "../../../component/sideDrawer/SideDrawer";
-import { orderItem, siteData, supplierData } from "../../../mockData";
-import { getCreatePOList, newCall } from "../api";
+import { createNewPO, getCreatePOList } from "../api";
 import { createPOHeader, poDrawerHeader } from "../constant";
 import styles from "../PurchaseOrder.module.css";
 import { CreatePOProps, poListProps } from "../type/CreatePOType";
 import CreatePODetail from "./component/CreatePODetail";
 import CreatePOHeader from "./component/CreatePoHeader";
+import { Dayjs } from 'dayjs';
+import { useNavigate } from "react-router-dom";
 
 function CreatePO() {
+
+  const navigate = useNavigate();
+  
   const [poList, setPOList] = useState<poListProps>({totalAmount: 10, item: []})
   const [selectedPO, setSelectedPO] = useState<poListProps>({totalAmount: 0, item: []});
   const [drawerList, setDrawerList] = useState<poListProps>({totalAmount: 0, item: []});
   const [reviewState, setReviewState] = useState(false);
+  const [site, setSite] = useState('');
+  const [supplier, setSupplier] = useState('');
+  const [date, setDate] = useState<Dayjs>();
 
   const getUpdatedItem = (list: poListProps, selectedItem: CreatePOProps) => {
     return list.item.filter(
@@ -33,8 +37,7 @@ function CreatePO() {
   }
 
   const checkboxHandler = (event: React.ChangeEvent<HTMLInputElement>, selectedItem: CreatePOProps) => {
-    console.log("pp", selectedItem)
-   // console.log(event.target.checked);
+   
    const temp = {...selectedPO};
     if (event.target.checked) {
      
@@ -47,7 +50,6 @@ function CreatePO() {
       setSelectedPO(temp);
     }
   };
-
   
   const itemRemoveHandler = (item: CreatePOProps) => {
     const temp = {...drawerList};
@@ -71,13 +73,26 @@ function CreatePO() {
     setSelectedPO(drawerList);
     setReviewState(false);
   }
+  
+  const blurHandler = () => {
+    const totalAmount = selectedPO.item.reduce((acc, cur) => {
+      return acc = acc + cur.itemPrice * cur.itemQuantity;
+    }, 0);
+    setSelectedPO({...selectedPO, totalAmount})
+  }
 
-  const getToalAmount = () => {
-    let sum = 980;
-    // selectedPO.item.reduce((a, b) => {
-    //   return sum = a.itemAmount + b.itemAmount;
-    // })
-    return sum
+  const createPOHandler = () => {
+    let currentDate = new Date()
+    
+    const param = {
+      selectedP: selectedPO,
+      poId: `${currentDate.toISOString().split('T')[0]}/${currentDate.getTime()}`,
+      site,
+      supplier
+    }
+    createNewPO(param);
+    navigate('/');
+    
   }
 
   const getDrawerData = () => {
@@ -139,6 +154,11 @@ function CreatePO() {
         <CreatePOHeader
           stateHandler={stateHandler}
           selectedPO={selectedPO}
+          createPOHandler={createPOHandler}
+          handleSite={(value: any) => setSite(value)}
+          handleSupplier={(value: any) => setSupplier(value)}
+          handleDate={(value: Dayjs ) => setDate(value)}
+          value={date}
         />
       </div>
       <div data-testid="amount">Total Amount: {poList.totalAmount}</div>
@@ -159,7 +179,7 @@ function CreatePO() {
           </TableHead>
           <TableBody>
             {poList.item.map((item) => (
-             <CreatePODetail key={item.itemId} item={item} checkboxHandler={checkboxHandler} selectedPO={selectedPO} />
+             <CreatePODetail key={item.itemId} item={item} checkboxHandler={checkboxHandler} selectedPO={selectedPO} blurHandler={blurHandler} />
             ))}
           </TableBody>
         </Table>

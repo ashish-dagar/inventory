@@ -23,7 +23,50 @@ export const poData = [
     poCreatedDate: '08-08-2022',
     amount: '2504',
   }
-]
+];
+
+export const poDataNew = [
+  {
+    "selectedP": {
+        "totalAmount": 410,
+        "item": [
+            {
+                "itemName": "tomato",
+                "itemId": 1,
+                "itemPrice": 20,
+                "itemUnit": "Kg",
+                "itemQuantity": "12",
+                "itemAmount": 0
+            },
+            {
+                "itemName": "potato",
+                "itemId": 2,
+                "itemPrice": 10,
+                "itemUnit": "Kg",
+                "itemQuantity": "10",
+                "itemAmount": 0
+            },
+            {
+                "itemName": "ppepsi",
+                "itemId": 6,
+                "itemPrice": 70,
+                "itemUnit": "lt",
+                "itemQuantity": "1",
+                "itemAmount": 0
+            }
+        ]
+    },
+    "poId": "2022-10-05/1664975519779",
+    "site": {
+        "label": "Noida",
+        "id": 1
+    },
+    "supplier": {
+        "label": "Delhi",
+        "id": 2
+    }
+}
+];
 
 export const siteData = [
   {label: 'Noida', id: 1},
@@ -139,6 +182,8 @@ export const TOItem = [
     totalAmount: 100,
     itemQuantity: 7,
     itemDate: '08-08-2022',
+    site: {label: 'Noida', id: 1},
+    supplier: {label: 'GuruGram', id: 3},
     item: [
     {
       itemName: 'tomato',
@@ -202,6 +247,8 @@ export const TOItem = [
   totalAmount: 100,
   itemQuantity: 3,
   itemDate: '08-08-2022',
+  site:  {label: 'Delhi', id: 2},
+  supplier: {label: 'Greater Noida', id: 4},
   item: [
   {
     itemName: 'tomato',
@@ -294,3 +341,36 @@ export const mockOrderItem = {
     itemAmount: 0
   }]
 };
+
+///////////////////////Good Received Order ////////////////////////
+
+export const goodReceivedOrderItem = [
+  {
+    poId: 1,
+    GRStatus: 'SUCCESS',
+    poCreatedDate: '08-08-2022',
+    GRCreatedDate: '08-08-2022',
+    amount: 2504,
+  },
+  {
+    poId: 2,
+    GRStatus: 'SUCCESS',
+    poCreatedDate: '08-08-2022',
+    GRCreatedDate: '08-08-2022',
+    amount: 2504,
+  },
+  {
+    poId: 3,
+    GRStatus: 'SUCCESS',
+    poCreatedDate: '08-08-2022',
+    GRCreatedDate: '08-08-2022',
+    amount: 2504,
+  },
+  {
+    poId: 4,
+    GRStatus: 'SUCCESS',
+    poCreatedDate: '08-08-2022',
+    GRCreatedDate: '08-08-2022',
+    amount: 2504,
+  }
+];

@@ -7,6 +7,7 @@ import SidePanel from './SidePanel';
 import CreatePO from './routes/purchaseOrder/create/CreatePO';
 import TransferOrder from './routes/transferOrder';
 import CreateTO from './routes/transferOrder/create/CreateTO';
+import GoodReceived from './routes/goodReceived';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/create' element={<CreatePO />} />
         <Route path='/transferOrder' element={<TransferOrder />} />
         <Route path='/createTransferOrder' element={<CreateTO />} />
+        <Route path='/goodReceivedOrder' element={<GoodReceived />}/>
       </Routes>
       </div>
     </div>

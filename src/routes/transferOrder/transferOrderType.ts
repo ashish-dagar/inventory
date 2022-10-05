@@ -21,4 +21,11 @@ export interface toListProps {
   toId: number;
   itemDate: string;
   item: toListItemProps[];
+  site: {label: string, id:number};
+  supplier: {label: string, id: number};
+}
+
+export interface supplierPropd {
+  label: string;
+  id: number
 }

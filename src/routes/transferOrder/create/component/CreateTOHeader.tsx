@@ -1,19 +1,20 @@
+import React from 'react';
 import { Autocomplete, Button, TextField } from "@mui/material";
 import { siteData, supplierData } from "../../../../mockData";
 
-function CreateTOHeader(): JSX.Element {
+function CreateTOHeader({handleSite, handleSupplier}: any): JSX.Element {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
       <Autocomplete
         options={siteData}
         renderInput={(params) => <TextField {...params} label="Site" />}
-        onChange={(event, value) => console.log("value", value)}
+        onChange={(event, value) => handleSite(value)}
         sx={{ width: 300 }}
       />
       <Autocomplete
         options={supplierData}
         renderInput={(params) => <TextField {...params} label="Site" />}
-        onChange={(event, value) => console.log("value", value)}
+        onChange={(event, value) => handleSupplier(value)}
         sx={{ width: 300 }}
       />
       <Autocomplete

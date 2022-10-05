@@ -4,13 +4,14 @@ import {
   TableCell,
   TableRow,
 } from "@mui/material";
-import { useState } from "react";
+import React, { useState } from "react";
 interface CreatePODetailProps {
   item: any;
   checkboxHandler: any;
-  selectedPO: any
+  selectedPO: any;
+  blurHandler: any;
 }
-function CreatePODetail({item, checkboxHandler, selectedPO}:CreatePODetailProps) {
+function CreatePODetail({item, checkboxHandler, selectedPO, blurHandler}:CreatePODetailProps) {
   const [quantity, setQuantity] = useState<number>(0);
   
   const itemQuantityHandler = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -31,8 +32,10 @@ function CreatePODetail({item, checkboxHandler, selectedPO}:CreatePODetailProps)
     <TableCell align="left">{item.itemName}</TableCell>
     <TableCell align="left">
       <TextField
+        disabled={!(selectedPO.item.filter((i: any) => i.itemId === item.itemId).length > 0)}
         value={quantity ? quantity : ''}
         onChange={(event) => itemQuantityHandler(event)}
+        onBlur={blurHandler}
         type= 'number'
       />
     </TableCell>
