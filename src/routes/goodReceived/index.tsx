@@ -13,7 +13,7 @@ export default function GoodReceived(): JSX.Element {
   return (
     <div>
       <div className={styles.headContainer}>
-        <Button variant="contained" onClick={()=>navigate('/create')}>Create PO</Button>
+        <Button variant="contained" onClick={()=>navigate('/createGoodsOrder')}>Create Good Received</Button>
       </div>
 
       <div className={styles.bodyContainer}>

@@ -8,6 +8,7 @@ import CreatePO from './routes/purchaseOrder/create/CreatePO';
 import TransferOrder from './routes/transferOrder';
 import CreateTO from './routes/transferOrder/create/CreateTO';
 import GoodReceived from './routes/goodReceived';
+import CreateGoodReceived from './routes/goodReceived/create';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/transferOrder' element={<TransferOrder />} />
         <Route path='/createTransferOrder' element={<CreateTO />} />
         <Route path='/goodReceivedOrder' element={<GoodReceived />}/>
+        <Route path='/createGoodsOrder' element={<CreateGoodReceived />} />
       </Routes>
       </div>
     </div>

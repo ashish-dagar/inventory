@@ -24,7 +24,7 @@ export const toContentLabel = [
         type: 'text'
       },
     {
-      name: 'amount',
+      name: 'totalAmount',
       type: 'text'
     },
   ];

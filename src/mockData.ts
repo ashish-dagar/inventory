@@ -147,6 +147,44 @@ export const orderItem = {
 
 export const transferOrderItem = [
   {
+    toId: 1,
+    poId: 1,
+    toStatus: 'SUCCESS',
+    totalAmount: 100,
+    poCreatedDate: '08-08-2022',
+    toCreatedDate: '08-08-2022',
+    amount: 2510,
+    itemQuantity: 7,
+    itemDate: '08-08-2022',
+    site: {label: 'Noida', id: 1},
+    supplier: {label: 'GuruGram', id: 3},
+    item: [
+    {
+      itemName: 'cheese',
+      itemId: 3,
+      itemPrice: 200,
+      itemUnit: 'Kg',
+      itemQuantity: 0,
+      itemAmount: 0
+    },
+    {
+      itemName: 'chilli',
+      itemId: 5,
+      itemPrice: 40,
+      itemUnit: 'Kg',
+      itemQuantity: 0,
+      itemAmount: 0
+    },
+    {
+      itemName: 'ppepsi',
+      itemId: 6,
+      itemPrice: 70,
+      itemUnit: 'lt',
+      itemQuantity: 0,
+      itemAmount: 0
+    }]
+  },
+  {
     poId: 1,
     toStatus: 'SUCCESS',
     poCreatedDate: '08-08-2022',
@@ -373,4 +411,85 @@ export const goodReceivedOrderItem = [
     GRCreatedDate: '08-08-2022',
     amount: 2504,
   }
+];
+
+export const createGoodReceivedItems = [
+  {
+    toId: 1,
+    poId: 1,
+    grId: 1,
+    toStatus: 'SUCCESS',
+    totalAmount: 100,
+    poCreatedDate: '08-08-2022',
+    toCreatedDate: '08-08-2022',
+    amount: 2510,
+    itemQuantity: 7,
+    itemDate: '08-08-2022',
+    site: {label: 'Noida', id: 1},
+    supplier: {label: 'GuruGram', id: 3},
+    item: [
+    {
+      itemName: 'cheese',
+      itemId: 3,
+      itemPrice: 200,
+      itemUnit: 'Kg',
+      itemQuantity: 0,
+      itemAmount: 0
+    },
+    {
+      itemName: 'chilli',
+      itemId: 5,
+      itemPrice: 40,
+      itemUnit: 'Kg',
+      itemQuantity: 0,
+      itemAmount: 0
+    },
+    {
+      itemName: 'ppepsi',
+      itemId: 6,
+      itemPrice: 70,
+      itemUnit: 'lt',
+      itemQuantity: 0,
+      itemAmount: 0
+    }]
+  },
+  {
+    toId: 2,
+    poId: 2,
+    grId: 2,
+    toStatus: 'SUCCESS',
+    totalAmount: 100,
+    poCreatedDate: '08-08-2022',
+    toCreatedDate: '08-08-2022',
+    amount: 2510,
+    itemQuantity: 7,
+    itemDate: '08-08-2022',
+    site: {label: 'Noida', id: 1},
+    supplier: {label: 'GuruGram', id: 3},
+    item: [
+    {
+      itemName: 'cheese',
+      itemId: 3,
+      itemPrice: 200,
+      itemUnit: 'Kg',
+      itemQuantity: 0,
+      itemAmount: 0
+    },
+    {
+      itemName: 'chilli',
+      itemId: 5,
+      itemPrice: 40,
+      itemUnit: 'Kg',
+      itemQuantity: 0,
+      itemAmount: 0
+    },
+    {
+      itemName: 'ppepsi',
+      itemId: 6,
+      itemPrice: 70,
+      itemUnit: 'lt',
+      itemQuantity: 0,
+      itemAmount: 0
+    }]
+  },
 ];

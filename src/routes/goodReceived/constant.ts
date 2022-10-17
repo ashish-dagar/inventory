@@ -27,3 +27,5 @@ export const goodReceivedContentLabel = [
       type: 'text'
     },
   ];
+
+  export const createGRHeader = ['GR ID', 'SUPPLIER', 'DATE', 'AMOUNT', ];

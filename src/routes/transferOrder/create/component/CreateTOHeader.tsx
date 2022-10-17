@@ -2,7 +2,7 @@ import React from 'react';
 import { Autocomplete, Button, TextField } from "@mui/material";
 import { siteData, supplierData } from "../../../../mockData";
 
-function CreateTOHeader({handleSite, handleSupplier}: any): JSX.Element {
+function CreateTOHeader({handleSite, handleSupplier, createTOhandler}: any): JSX.Element {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
       <Autocomplete
@@ -26,7 +26,7 @@ function CreateTOHeader({handleSite, handleSupplier}: any): JSX.Element {
         onChange={(event, value) => console.log("value", value)}
         sx={{ width: 300 }}
       />
-      <Button variant="contained">Create TO</Button>
+      <Button variant="contained" onClick={createTOhandler}>Create TO</Button>
       {/* <Button
         variant="contained"
         onClick={stateHandler}

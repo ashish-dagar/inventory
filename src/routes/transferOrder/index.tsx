@@ -1,68 +1,48 @@
-import { useEffect, useState } from 'react';
-import { Button, 
-  //Checkbox, Table, TableBody, TableCell, TableHead, TableRow 
-} from '@mui/material';
+import { useEffect, useState } from "react";
+import {
+  Button
+} from "@mui/material";
 
-import { toContentLabel, transferOrderHeader } from './constant';
-import styles from './transferOrder.module.css';
-import { transferOrderListProps } from './transferOrderType';
-import { fetchTransferOrderList } from './api';
-import { useNavigate } from 'react-router-dom';
-import Table from '../../component/Table/Table';
+import { toContentLabel, transferOrderHeader } from "./constant";
+import styles from "./transferOrder.module.css";
+import { transferOrderListProps } from "./transferOrderType";
+import { fetchTransferOrderList } from "./api";
+import { useNavigate } from "react-router-dom";
+import Table from "../../component/Table/Table";
 
 function TransferOrder(): JSX.Element {
   const navigate = useNavigate();
-  const [transferOrderList, setTransferOrderList] = useState<transferOrderListProps[]>([]);
+  const [transferOrderList, setTransferOrderList] = useState<
+    transferOrderListProps[] | any
+  >([]);
 
   const getTransferList = async () => {
     const list = await fetchTransferOrderList();
     setTransferOrderList(list);
-  }
+  };
   useEffect(() => {
     getTransferList();
   });
 
-  return (<>
-    <div className={styles.headContainer}>
-        <Button variant="contained" onClick={()=>navigate('/createTransferOrder')}>Create TO</Button>
-    </div>
-    <div className={styles.bodyContainer}>
-      <Table
-        tableHeader={transferOrderHeader}
-      tableContent={transferOrderList}
-      tableLabel={toContentLabel}
-      />
-      {/* <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell align="left">
-              <Checkbox />
-            </TableCell>
-            {transferOrderHeader.map((item: any) => {
-              return (
-                <TableCell key={item} align="left">{item}</TableCell>
-              )
-            })}
-          </TableRow>
-        </TableHead>
-          <TableBody>
-            {transferOrderList.map((item: transferOrderListProps) => {
-              return (
-                <TableRow key={item.poId}>
-                  <TableCell><Checkbox /></TableCell>
-                  <TableCell>{item.poId}</TableCell>
-                  <TableCell>{item.toStatus}</TableCell>
-                  <TableCell>{item.poCreatedDate}</TableCell>
-                  <TableCell>{item.toCreatedDate}</TableCell>
-                  <TableCell>{item.amount}</TableCell>
-                </TableRow>
-              )
-            })}
-          </TableBody>
-      </Table> */}
-    </div>
+  return (
+    <>
+      <div className={styles.headContainer}>
+        <Button
+          variant="contained"
+          onClick={() => navigate("/createTransferOrder")}
+        >
+          Create TO
+        </Button>
+      </div>
+      <div className={styles.bodyContainer}>
+        <Table
+          tableHeader={transferOrderHeader}
+          tableContent={transferOrderList}
+          tableLabel={toContentLabel}
+        />
+      </div>
     </>
-    );
+  );
 }
 
 export default TransferOrder;
